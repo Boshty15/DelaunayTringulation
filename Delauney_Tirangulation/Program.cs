@@ -22,7 +22,7 @@ namespace Delauney_Tirangulation
             for (int i = 0; i < 5; i++)
             {
                 Console.WriteLine(i + 1);
-                Console.WriteLine("X: " + pointCloud[i].getX() + " Y: " + pointCloud[i].getY() + " Z: " + pointCloud[i].getZ());
+                Console.WriteLine("X: " + pointCloud[i].getX() + " Y: " + pointCloud[i].getY());
             }
 
             
@@ -52,7 +52,7 @@ namespace Delauney_Tirangulation
                     listInt.Add(int.Parse(item2[0]));
                 }
 
-                pointCloud.Add(new Vector2D(listInt[0], listInt[1], listInt[2]));
+                pointCloud.Add(new Vector2D(listInt[0], listInt[1]));
                 listInt = new List<int>();
 
             }

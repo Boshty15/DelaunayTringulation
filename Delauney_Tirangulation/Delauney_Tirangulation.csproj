@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="DelaunayTriangulator.cs" />
     <Compile Include="Edge.cs" />
+    <Compile Include="EdgeDistance.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Triangle2D.cs" />

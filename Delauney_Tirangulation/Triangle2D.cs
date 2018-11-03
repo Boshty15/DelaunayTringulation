@@ -19,6 +19,9 @@ namespace Delauney_Tirangulation
             this.B = b;
             this.C = c;
         }
+        public Triangle2D()
+        {
+        }
         public Vector2D C { get => c; set => c = value; }
         public Vector2D B { get => b; set => b = value; }
         public Vector2D A { get => a; set => a = value; }
