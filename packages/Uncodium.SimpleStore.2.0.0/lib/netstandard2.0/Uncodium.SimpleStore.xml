@@ -1,0 +1,524 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Uncodium.SimpleStore</name>
+    </assembly>
+    <members>
+        <member name="T:Uncodium.SimpleStore.Extensions">
+            <summary>
+            Store extensions. 
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.Add(Uncodium.SimpleStore.ISimpleStore,System.String,System.String)">
+            <summary>
+            String will be stored UTF8 encoded.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.Add(Uncodium.SimpleStore.ISimpleStore,System.String,System.Byte[])">
+            <summary>
+            Store blob.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.Compress(Uncodium.SimpleStore.ISimpleStore,System.IO.Compression.CompressionLevel)">
+            <summary>
+            Compressed storage.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.FailRandomly(Uncodium.SimpleStore.ISimpleStore,System.Double)">
+            <summary>
+            Each store operation fails with given probability.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.FailRandomly(Uncodium.SimpleStore.ISimpleStore,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Each store operation fails with given probability.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.DelayRandomly(Uncodium.SimpleStore.ISimpleStore,System.Double)">
+            <summary>
+            Each store operation is delayed between 0 and given duration in seconds.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.DelayRandomly(Uncodium.SimpleStore.ISimpleStore,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Each store operation is delayed between 0 and given duration in seconds.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.Async(Uncodium.SimpleStore.ISimpleStore)">
+            <summary>
+            Makes all store operations async.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.FailRandomly(Uncodium.SimpleStore.ISimpleStoreAsync,System.Double)">
+            <summary>
+            Each store operation fails with given probability.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.FailRandomly(Uncodium.SimpleStore.ISimpleStoreAsync,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Each store operation fails with given probability.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.DelayRandomly(Uncodium.SimpleStore.ISimpleStoreAsync,System.Double)">
+            <summary>
+            Each store operation is delayed between 0 and given duration in seconds.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.Extensions.DelayRandomly(Uncodium.SimpleStore.ISimpleStoreAsync,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Each store operation is delayed between 0 and given duration in seconds.
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.ISimpleStore">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Uncodium.SimpleStore.ISimpleStore.Stats">
+            <summary>
+            Various runtime counts and other statistics.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStore.Add(System.String,System.Object,System.Func{System.Byte[]})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStore.Get(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStore.Remove(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStore.TryGetFromCache(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStore.SnapshotKeys">
+            <summary>
+            Gets a snapshot of all existing keys.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStore.Flush">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.ISimpleStoreAsync">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStoreAsync.GetStatsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Various counts and other statistics.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStoreAsync.AddAsync(System.String,System.Object,System.Func{System.Byte[]},System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStoreAsync.GetAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStoreAsync.RemoveAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStoreAsync.TryGetFromCacheAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.ISimpleStoreAsync.FlushAsync(System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.SimpleDiskStore">
+            <summary>
+            A memory-mapped key/value store on disk.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.#ctor(System.String,System.Type[])">
+            <summary>
+            Creates store in folder 'dbDiskLocation'.
+            Optional set of types that will be kept alive in memory.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.#ctor(System.String)">
+            <summary>
+            Creates store in folder 'dbDiskLocation'.
+            </summary>
+        </member>
+        <member name="P:Uncodium.SimpleStore.SimpleDiskStore.Stats">
+            <summary>
+            Various counts and other statistics.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.Add(System.String,System.Object,System.Func{System.Byte[]})">
+            <summary>
+            Adds key/value pair to store.
+            If 'getEncodedValue' is null, than value will not be written to disk.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.Get(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.Remove(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.TryGetFromCache(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.SnapshotKeys">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.Flush">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleDiskStore.Dispose">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.SimpleMemoryStore">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Uncodium.SimpleStore.SimpleMemoryStore.Stats">
+            <summary>
+            Various counts and other statistics.
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.Add(System.String,System.Object,System.Func{System.Byte[]})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.Get(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.Remove(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.TryGetFromCache(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.SnapshotKeys">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.Flush">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.SimpleMemoryStore.Dispose">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.Stats">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.Stats.CountAdd">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.Stats.CountGet">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.Stats.CountGetInvalidKey">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.Stats.CountGetCacheHit">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.Stats.CountGetCacheMiss">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.Stats.CountRemove">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.Stats.CountRemoveInvalidKey">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.Stats.CountKeepAlive">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.Stats.CountSnapshotKeys">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Uncodium.SimpleStore.Stats.CountFlush">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.WrapperAsync">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperAsync.#ctor(Uncodium.SimpleStore.ISimpleStore)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperAsync.AddAsync(System.String,System.Object,System.Func{System.Byte[]},System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperAsync.GetAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperAsync.GetStatsAsync(System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperAsync.RemoveAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperAsync.TryGetFromCacheAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperAsync.FlushAsync(System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperAsync.Dispose">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.WrapperCompress">
+            <summary>
+            Compressed storage. 
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperCompress.#ctor(Uncodium.SimpleStore.ISimpleStore,System.IO.Compression.CompressionLevel)">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Uncodium.SimpleStore.WrapperCompress.Stats">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperCompress.Add(System.String,System.Object,System.Func{System.Byte[]})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperCompress.Get(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperCompress.Remove(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperCompress.TryGetFromCache(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperCompress.SnapshotKeys">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperCompress.Flush">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperCompress.Dispose">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.WrapperRandomDelay">
+            <summary>
+            Each operation will be delayed. 
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomDelay.#ctor(Uncodium.SimpleStore.ISimpleStore,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomDelay.#ctor(Uncodium.SimpleStore.ISimpleStore,System.Double)">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Uncodium.SimpleStore.WrapperRandomDelay.Stats">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomDelay.Add(System.String,System.Object,System.Func{System.Byte[]})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomDelay.Get(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomDelay.Remove(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomDelay.TryGetFromCache(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomDelay.SnapshotKeys">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomDelay.Flush">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomDelay.Dispose">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.WrapperRandomDelayAsync">
+            <summary>
+            Each operation will be delayed. 
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomDelayAsync.#ctor(Uncodium.SimpleStore.ISimpleStoreAsync,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomDelayAsync.#ctor(Uncodium.SimpleStore.ISimpleStoreAsync,System.Double)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomDelayAsync.GetStatsAsync(System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomDelayAsync.AddAsync(System.String,System.Object,System.Func{System.Byte[]},System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomDelayAsync.GetAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomDelayAsync.RemoveAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomDelayAsync.TryGetFromCacheAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomDelayAsync.FlushAsync(System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomDelayAsync.Dispose">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.WrapperRandomFail">
+            <summary>
+            Each operation may fail with a given probability. 
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomFail.#ctor(Uncodium.SimpleStore.ISimpleStore,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomFail.#ctor(Uncodium.SimpleStore.ISimpleStore,System.Double)">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Uncodium.SimpleStore.WrapperRandomFail.Stats">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomFail.Add(System.String,System.Object,System.Func{System.Byte[]})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomFail.Get(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomFail.Remove(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomFail.TryGetFromCache(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomFail.SnapshotKeys">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomFail.Flush">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomFail.Dispose">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Uncodium.SimpleStore.WrapperRandomFailAsync">
+            <summary>
+            Each operation may fail with a given probability. 
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomFailAsync.#ctor(Uncodium.SimpleStore.ISimpleStoreAsync,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomFailAsync.#ctor(Uncodium.SimpleStore.ISimpleStoreAsync,System.Double)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomFailAsync.GetStatsAsync(System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomFailAsync.AddAsync(System.String,System.Object,System.Func{System.Byte[]},System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomFailAsync.GetAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomFailAsync.RemoveAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomFailAsync.TryGetFromCacheAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomFailAsync.FlushAsync(System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Uncodium.SimpleStore.WrapperRandomFailAsync.Dispose">
+            <summary>
+            </summary>
+        </member>
+    </members>
+</doc>
