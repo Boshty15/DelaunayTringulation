@@ -8,8 +8,8 @@ namespace Delauney_Tirangulation
 {
     class Vector2D
     {
-        private int x;
-        private int y;
+        public int x { get; set; }
+        public int y { get; set; }
 
         public Vector2D(int x, int y)
         {
@@ -20,14 +20,7 @@ namespace Delauney_Tirangulation
         {
         }
 
-        public int getX()
-        {
-            return this.x;
-        }
-        public int getY()
-        {
-            return this.y;
-        }
+       
 
         public Vector2D minus (Vector2D vector)
         {
@@ -52,6 +45,10 @@ namespace Delauney_Tirangulation
         public double dot(Vector2D vector)
         {
             return this.x * vector.x + this.y * vector.y;
+        }
+        public override string ToString()
+        {
+            return x.ToString() + "," + y.ToString();
         }
 
     }

@@ -8,16 +8,15 @@ namespace Delauney_Tirangulation
 {
     class Edge
     {
-        private Vector2D a;
-        private Vector2D b;
+        public Vector2D a { get; set; }
+        public Vector2D b { get; set; }
 
-        public Vector2D B { get => b; set => b = value; }
-        public Vector2D A { get => a; set => a = value; }
 
         public Edge(Vector2D a, Vector2D b)
         {
-            this.A = a;
-            this.B = b;
+            this.a = a;
+            this.b = b;
         }
+        
     }
 }

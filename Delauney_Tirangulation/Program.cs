@@ -18,14 +18,34 @@ namespace Delauney_Tirangulation
             pointCloud = readFile(file);
 
 
-
+            List<Vector2D> test = new List<Vector2D>();
             for (int i = 0; i < 5; i++)
             {
-                Console.WriteLine(i + 1);
-                Console.WriteLine("X: " + pointCloud[i].getX() + " Y: " + pointCloud[i].getY());
+                /*Console.WriteLine(i + 1);
+                Console.WriteLine("X: " + pointCloud[i].getX() + " Y: " + pointCloud[i].getY());*/
+                test.Add(new Vector2D(1,i));
             }
 
-            
+            try
+            {
+                DelaunayTriangulator delaunay = new DelaunayTriangulator(test);
+                delaunay.triangulate();
+
+                List<Triangle2D> listTrikotnikov = delaunay.listTriangle2D;
+
+                for (int i = 0; i < 5; i++)
+                {
+                    Console.WriteLine(i + 1);
+                    Console.WriteLine("A: " + listTrikotnikov[i].a + " B: " + listTrikotnikov[i].b + " C:" + listTrikotnikov[i].c);
+                }
+                Console.WriteLine(listTrikotnikov.Count);
+
+
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
 
 
 
