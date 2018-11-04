@@ -31,39 +31,42 @@ namespace Delauney_Tirangulation
             if(pointCloud != null && pointCloud.Count > 3)
             {
                 int max = 0;
-                foreach(Vector2D v in pointCloud)
+                foreach (Vector2D v in pointCloud)
                 {
                     max = Math.Max(Math.Max(v.x, v.y), max);
                 }
-                max *= 16;
+               // max *= 16;
 
-                Vector2D p1 = new Vector2D(0, 3 * max);
-                Vector2D p2 = new Vector2D(3 * max, 0);
-                Vector2D p3 = new Vector2D(-3 * max, -3 * max);
+                Vector2D p1 = new Vector2D(0,  max);
+                Vector2D p2 = new Vector2D( max, 0);
+                Vector2D p3 = new Vector2D(max, max);
 
                 Triangle2D superTriangle = new Triangle2D(p1, p2, p3);
                 listTriangle2D.Add(superTriangle);
 
-                foreach(Vector2D vector in pointCloud)
+                foreach (Vector2D vector in pointCloud)
                 {
                     Triangle2D tmp = poisciTrikotni(vector);
 
                     if(tmp != null)
                     {
                         // Tocka je znotraj trikotnika.
+                        Vector2D a = tmp.a;
+                        Vector2D b = tmp.b;
+                        Vector2D c = tmp.c;
                         listTriangle2D.Remove(tmp);
 
-                        Triangle2D t1 = new Triangle2D(tmp.a, tmp.b, vector);
-                        Triangle2D t2 = new Triangle2D(tmp.b, tmp.c, vector);
-                        Triangle2D t3 = new Triangle2D(tmp.c, tmp.a, vector);
+                        Triangle2D t1 = new Triangle2D(a, b, vector);
+                        Triangle2D t2 = new Triangle2D(b, c, vector);
+                        Triangle2D t3 = new Triangle2D(c, a, vector);
 
                         listTriangle2D.Add(t1);
                         listTriangle2D.Add(t2);
                         listTriangle2D.Add(t3);
 
-                        preveriKot(t1, new Edge(tmp.a, tmp.b), vector);
-                        preveriKot(t2, new Edge(tmp.b, tmp.c), vector);
-                        preveriKot(t3, new Edge(tmp.c, tmp.a), vector);
+                        preveriKot(t1, new Edge(a, b), vector);
+                        preveriKot(t2, new Edge(b, c), vector);
+                        preveriKot(t3, new Edge(c, a), vector);
                     }
                     else
                     {
@@ -80,7 +83,7 @@ namespace Delauney_Tirangulation
                         Triangle2D b = null;
                         foreach(Triangle2D t in listTriangle2D)
                         {
-                            if (t.isSosed(edge))
+                            if (t.isSosed(edge) && t != a)
                             {
                                 b = t;
                             }
